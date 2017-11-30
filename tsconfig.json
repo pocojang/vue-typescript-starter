@@ -1,31 +1,18 @@
 {
   "compilerOptions": {
-    "//": "ES2015+ 의 import * from 사용 지원",
     "allowSyntheticDefaultImports": true,
-    "//": "ES7 데코레이터에 대한 지원 (experimental)",
     "experimentalDecorators": true,
-    "//": "데코레이터를 사용한 DI 지원 (experimental)",
     "emitDecoratorMetadata": true,
-    "//": "컴파일에 포함될 라이브러리 (배열로 지정해야함)",
     "lib": [ "dom", "es5", "es2015", "es2015.promise" ],
-    "//": "target === 'ES3' or 'ES5' ? 'CommonJS' : 'ES6' => But!! ES5 commonjs는 webpack tree shaking 미지원 => es2015",
     "module": "es2015",
-    "//": "module import 지정 (node => node_modules 참고 || classic => 경로로 인식)",
     "moduleResolution": "node",
-    "//": "함수 반환에 대한 오류 체크",
     "noImplicitReturns": true,
-    "//": "컴파일된 결과물 저장",
     "outDir": "./built/",
-    "//": "오류 및 메세지 스타일을 색상으로 표현 (experimental)",
     "pretty": true,
-    "//": "소스맵 생성",
     "sourceMap": true,
-    "//": "모든 엄격한 유형의 검사 사용",
     "strict": true,
-    "//": "VueJs는 ECMAScript 5를 지원하므로 타입스크립트 컴파일 역시도 es5로 지정",
     "target": "es5"
   },
-  "//": "컴파일이 될 대상의 경로",
   "include": [
     "./src/**/*.ts"
   ],
