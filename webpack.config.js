@@ -1,5 +1,10 @@
 var path = require('path');
 var webpack = require('webpack');
+var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+
+function resolve (dir) {
+  return path.join(__dirname, '..', dir)
+}
 
 module.exports = {
   entry: './src/main.ts',
@@ -25,8 +30,10 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'css-loader',
-        exclude: /node_modules/
+        use: [
+          'vue-style-loader',
+          'css-loader'
+        ],
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
@@ -39,26 +46,37 @@ module.exports = {
     extensions: ['.ts', '.js', '.vue', 'json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      // "@": resolve('src')
+      '@': resolve('src')
     }
   },
   devServer: {
     historyApiFallback: true,
     noInfo: true,
     overlay: true,
+    inline: true,
     hot: true
   },
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
+  performance: {
+    hints: "warning"
+  },
   plugins: [
+    new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"'
-      }
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        warnings: false
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': '"production"',
+    }),
+    new UglifyJSPlugin({
+      uglifyOptions: {
+        exclude: /node_modules/,
+        sourceMap: true,
+        unused: true,
+        compressor: {
+          warnings: false
+        }
       }
     })
   ]

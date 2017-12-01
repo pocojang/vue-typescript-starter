@@ -1,9 +1,22 @@
 {
-    "defaultSeverity": "error",
-    "extends": [
-        "tslint:recommended"
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "rules": {
+    "indent": [
+      true,
+      "tabs",
+      2
     ],
-    "jsRules": {},
-    "rules": {},
-    "rulesDirectory": []
+    "no-any": true,
+    "quotemark": [
+      true,
+      "single"
+    ],
+    "triple-equals": [
+      true,
+      "allow-null-check"
+    ]
+  }
 }
