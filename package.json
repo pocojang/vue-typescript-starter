@@ -16,30 +16,33 @@
   "license": "MIT",
   "dependencies": {
     "vue": "^2.5.9",
-    "vue-class-component": "^6.1.0",
+    "vue-class-component": "^6.1.1",
     "vue-property-decorator": "^6.0.0"
   },
   "devDependencies": {
     "@types/jest": "^21.1.8",
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.5",
-    "ts-jest": "^21.2.3",
+    "ts-jest": "^21.2.4",
     "ts-loader": "^3.2.0",
     "typescript": "^2.6.2",
     "vue-loader": "^13.5.0",
     "vue-template-compiler": "^2.5.9",
-    "webpack": "^3.8.1",
+    "webpack": "^3.9.1",
     "webpack-dev-server": "^2.9.5"
   },
   "jest": {
     "moduleFileExtensions": [
       "ts",
-      "js"
+      "js",
+      "vue"
     ],
     "transform": {
-      "\\.ts$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+      "\\.ts$": "<rootDir>/node_modules/ts-jest/preprocessor.js",
+      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
     },
     "mapCoverage": true,
+    "snapshotSerializers": ["<rootDir>/node_modules/jest-serializer-vue"],
     "testPathIgnorePatterns": [
       "<rootDir>/node_modules/",
       "<rootDir>/src/lib/"
