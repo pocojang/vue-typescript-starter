@@ -40,11 +40,13 @@
       "vue"
     ],
     "transform": {
-      "\\.ts$": "<rootDir>/node_modules/ts-jest/preprocessor.js",
+      "\\.(ts)$": "<rootDir>/node_modules/ts-jest/preprocessor.js",
       ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
     },
     "mapCoverage": true,
-    "snapshotSerializers": ["<rootDir>/node_modules/jest-serializer-vue"],
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/jest-serializer-vue"
+    ],
     "testPathIgnorePatterns": [
       "<rootDir>/node_modules/",
       "<rootDir>/src/lib/"

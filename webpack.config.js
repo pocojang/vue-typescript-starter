@@ -46,6 +46,7 @@ module.exports = {
     extensions: ['.ts', '.js', '.vue', 'json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
+      '@': resolve('src')
     }
   },
   devServer: {
@@ -68,7 +69,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': '"production"',
     }),
-    new UglifyJSPlugin({
+    new webpack.optimize.UglifyJsPlugin({
       uglifyOptions: {
         exclude: /node_modules/,
         sourceMap: true,
