@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "test -w": "jest --watch",
-    "build": "webpack",
+    "profile": "webpack --profile --json > stats.json",
+    "build": "tsc && webpack",
     "dev": "webpack-dev-server --open --hot"
   },
   "author": {
@@ -26,6 +27,7 @@
     "ts-jest": "^21.2.4",
     "ts-loader": "^3.2.0",
     "typescript": "^2.6.2",
+    "uglifyjs-webpack-plugin": "^1.1.2",
     "vue-loader": "^13.5.0",
     "vue-template-compiler": "^2.5.9",
     "webpack": "^3.9.1",
@@ -47,6 +49,6 @@
       "<rootDir>/node_modules/",
       "<rootDir>/src/lib/"
     ],
-    "testRegex": "/__tests__/.*\\.(test|spec))\\.(ts|js|json)$"
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(js?|ts?)$"
   }
 }
