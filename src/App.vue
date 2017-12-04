@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<img src="./lib/logo.png">
-		<h1>
+		<h1 class="hello">
 			{{ msg }}
 		</h1>
 	</div>

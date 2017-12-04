@@ -69,7 +69,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': '"production"',
     }),
-    new webpack.optimize.UglifyJsPlugin({
+    new UglifyJSPlugin({
       uglifyOptions: {
         exclude: /node_modules/,
         sourceMap: true,
