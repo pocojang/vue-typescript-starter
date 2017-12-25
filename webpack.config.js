@@ -1,6 +1,5 @@
 var path = require('path');
 var webpack = require('webpack');
-var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -54,30 +53,17 @@ module.exports = {
     noInfo: true,
     overlay: true,
     inline: true,
-    hot: true
+    hot: true,
+    open: true
   },
   devtool: 'inline-source-map',
   performance: {
-    hints: "warning"
+    hints: false
   },
   plugins: [
-    new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
     }),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': '"production"',
-    }),
-    new UglifyJSPlugin({
-      uglifyOptions: {
-        exclude: /node_modules/,
-        sourceMap: true,
-        unused: true,
-        compressor: {
-          warnings: false
-        }
-      }
-    })
   ]
 };
