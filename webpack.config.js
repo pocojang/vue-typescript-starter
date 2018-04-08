@@ -1,8 +1,8 @@
 var path = require('path');
 var webpack = require('webpack');
 
-function resolve (dir) {
-  return path.join(__dirname, '..', dir)
+function resolve(dir) {
+  return path.join(__dirname, '..', dir);
 }
 
 module.exports = {
@@ -10,7 +10,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/dist/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   module: {
     rules: [
@@ -19,34 +19,31 @@ module.exports = {
         loader: 'ts-loader',
         exclude: /node_modules/,
         options: {
-          appendTsSuffixTo: [/\.vue$/]
-        }
+          appendTsSuffixTo: [/\.vue$/],
+        },
       },
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
-        use: [
-          'vue-style-loader',
-          'css-loader'
-        ],
+        use: ['vue-style-loader', 'css-loader'],
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
-        exclude: /node_modules/
-      }
-    ]
+        exclude: /node_modules/,
+      },
+    ],
   },
   resolve: {
     extensions: ['.ts', '.js', '.vue', 'json'],
     alias: {
-      'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src')
-    }
+      vue$: 'vue/dist/vue.esm.js',
+      '@': resolve('src'),
+    },
   },
   devServer: {
     historyApiFallback: true,
@@ -54,16 +51,16 @@ module.exports = {
     overlay: true,
     inline: true,
     hot: true,
-    open: true
+    open: true,
   },
   devtool: 'inline-source-map',
   performance: {
-    hints: false
+    hints: false,
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
     }),
-  ]
+  ],
 };

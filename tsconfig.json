@@ -3,7 +3,7 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "lib": [ "dom", "es5", "es2015", "es2015.promise" ],
+    "lib": ["dom", "es5", "es2015", "es2015.promise"],
     "module": "es2015",
     "moduleResolution": "node",
     "noImplicitReturns": true,
@@ -13,12 +13,7 @@
     "strict": true,
     "target": "es5"
   },
-  "include": [
-    "./src/**/*.ts"
-  ],
-  "exclude": [
-    "dist",
-    "node_modules",
-    "**/*.spec.ts"
-  ]
+  "types": ["jest"],
+  "include": ["./src/**/*.ts", "src/**/*.vue"],
+  "exclude": ["dist", "node_modules", "**/*.spec.ts"]
 }

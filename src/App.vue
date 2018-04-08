@@ -9,14 +9,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import Component from 'vue-class-component';
 
-export default Vue.extend({
-  data() {
-    return {
-      msg: "Hello Vue"
-    };
-  }
-});
+@Component({})
+export default class App extends Vue {
+  msg: string = 'Hello';
+}
 </script>
 
 <style>
