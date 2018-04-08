@@ -1,7 +1,9 @@
 {
   "defaultSeverity": "error",
   "extends": [
-    "tslint:recommended"
+    "plugin:vue/essential",
+    "tslint:latest",
+    "tslint-config-prettier"
   ],
   "rules": {
     "indent": [
