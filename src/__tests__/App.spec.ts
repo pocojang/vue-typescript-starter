@@ -7,6 +7,6 @@ describe('App.vue', () => {
     const vm = new Constructor().$mount();
 
     expect(vm.$el.querySelector('.hello h1').textContent)
-    .toEqual('Hello Vue');
+    .toEqual('Hello');
   })
 })

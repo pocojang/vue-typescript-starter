@@ -1,5 +1,6 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
+const { VueLoaderPlugin } = require('vue-loader');
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
@@ -58,6 +59,7 @@ module.exports = {
     hints: false,
   },
   plugins: [
+    new VueLoaderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
